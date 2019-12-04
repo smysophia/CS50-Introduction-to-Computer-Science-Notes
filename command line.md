@@ -12,8 +12,8 @@
 `mkdir` make directory 创建一个directory  
 `cp hello.txt hi.txt` copy hello.txt name as hi.txt  
 `cp -r pset0 pset3` copy recursively directory pset0 and name the new pset 3 因为directory里还有别的文件，所以recursively  
-`rm` delete  
-`rm -f` force delete  
-`rm -r` delete recursively a directory  
-`rm -rf` force delete directory  
-`mv greddy.c greedy.c` rename greddy.c to greedy.c  
+`rm` remove (delete it) 
+`rm -f` force remove
+`rm -r` remove recursively a directory  
+`rm -rf` remove recursively and force directory  
+`mv greddy.c greedy.c` move (rename) greddy.c to greedy.c  
