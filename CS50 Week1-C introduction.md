@@ -1,4 +1,4 @@
-# 第一周
+# Week1 - C introduction
 ## 输入输出
 ```c
 # include <stdio.h>
