@@ -16,4 +16,5 @@
 `rm -f` force remove
 `rm -r` remove recursively a directory  
 `rm -rf` remove recursively and force directory  
+`redir` remove a directory
 `mv greddy.c greedy.c` move (rename) greddy.c to greedy.c  
