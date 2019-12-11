@@ -26,5 +26,6 @@ while ((ch = fgetc(ptr)) != EOF)  //EOF = End Of File
 `fprintf()`write a formatted string to a file  
 `fseek(inptr,offset,from)`rewind or fast-forward in a file. inptr = the input pointer; offser = num of bytes to move cursur; from = {SEEK_CUR,SEEK_SET,SEEK_END} which means current of position,beginning of the file, end of the file  
 `ftell()` at what (byte) position you are
+`feof(ptr)`  if(feof(ptr)) break;
 
 ## pointer  
