@@ -84,14 +84,17 @@ return true
 
  
  ## 图片
- ![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")
- 或者
-![GitHub][github]
+ ![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")<br>
+ ` ![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")`<br>
+ 或者  
+![GitHub][github]  
 
-[github]: https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding"
+[github]: https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding"  
 
 Markdown 不支持指定图片的显示大小，不过可以通过直接插入<img />标签来指定相关属性：  
-<img src="https://github.com/smysophia/yixiu/blob/master/%E4%B8%80%E4%BC%91.jpg" alt="GitHub" title="yixiu" width="100" height="100" />
+<img src="https://github.com/smysophia/yixiu/blob/master/%E4%B8%80%E4%BC%91.jpg" alt="GitHub" title="yixiu" width="100" height="100" /><br>  
+`<img src="https://github.com/smysophia/yixiu/blob/master/%E4%B8%80%E4%BC%91.jpg" alt="GitHub" title="yixiu" width="100" height="100" />
+`
 
 ## 表格
 Name | Age
