@@ -77,6 +77,26 @@ node *addNode(node *head, int value)
 }
 ```
 
+* check (compare) the value wether in the linked list
+```c
+// Returns true if word is in dictionary else false
+bool check(const char *word)
+{
+
+    node *cursor = hashtable[hash(word)];
+    while (cursor != NULL)
+    {
+        if (strcasecmp(word, cursor->word) == 0)  // compare string to string. if equal, returns 0
+            return true;
+        
+        else
+            cursor = cursor->next;
+    }
+    return false;
+}
+```
+
+
 * print the linked list
 ```c
 void printList(node *head)
