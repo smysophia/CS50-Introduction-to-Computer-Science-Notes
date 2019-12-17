@@ -1,7 +1,7 @@
 # Week04 - C Data Structures
 `realloc(list, 4 * sizeof(int))` reallocate the size and copy the original list. See realloc.c  
 `fscanf(file, "%d", &number)` file is a pointer to FILE. &number is a address  
-`int strcasecmp (const char *s1, const char *s2)` string case insensitive compare. #include <string.h> 返回值：若参数s1 和s2 字符串相同则返回0。s1 > s2 则返回大于0 的值，s1 < s2 则返回小于0 的值。
+`int strcasecmp (const char *s1, const char *s2)` string case insensitive compare. #include <string.h> if s1=21, returns 0.
 
 ## define data type
 `typedef <old name> <new name>;`  
