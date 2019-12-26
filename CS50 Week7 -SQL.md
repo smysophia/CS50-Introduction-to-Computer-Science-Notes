@@ -23,6 +23,6 @@
 >> sqlite3 fromshi.db
 >> CREATE TABLE 'registrants' ('id' integer, 'name' varchar(255), 'dorm' varchar(255));
 >> INSERT INTO registrants (id, name, dorm) VALUES (1, 'Brian', 'A');
->> SELECT * FROM registrans WHERE dorm = 'A';
->> UPDATE registrants SET dorm = 'B' where id = 1;
->>
+>> SELECT * FROM registrants WHERE dorm = 'A';
+>> UPDATE registrants SET dorm = 'B' WHERE id = 1;
+>> DELETE FROM registrants WHERE id = 1;
