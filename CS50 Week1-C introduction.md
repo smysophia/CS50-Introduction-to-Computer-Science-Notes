@@ -1,4 +1,9 @@
 # Week1 - C introduction
+
+## 变量定义
+<类型名称> 变量名称;  
+int price;  
+  
 ## 输入输出
 ```c
 # include <stdio.h>
