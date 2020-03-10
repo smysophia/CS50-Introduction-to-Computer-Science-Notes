@@ -2,9 +2,27 @@
 
 ## 变量定义
 <类型名称> 变量名称;  
-int price;  
+int price; C语言是一种有类型的语言，所有变量在使用之前必须定义或申明。   
+定义常量`const int AMOUNT = 100;`  
+数据类型  
+%d int 整数
+`printf("%d\n", 10/3*3);` 输出结果是9，因为%d整数运算
+%f float 浮点数
+double 双精度浮点数
+```c
+double i;
+scanf("%lf", &i);
+printf("%f", i);
+```
+
   
 ## 输入输出
+输入  
+```c
+int i=0;
+scanf("%d",&i); #先定义类型
+```
+输出
 ```c
 # include <stdio.h>
 # include <cs50.h>
