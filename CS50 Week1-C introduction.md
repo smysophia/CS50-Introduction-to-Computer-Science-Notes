@@ -124,8 +124,6 @@ int main()
     long x=0;
     int i=0;
     scanf("%ld", &x);
-    i++;
-    x /= 10;
     while (x>0){
         x /= 10;
         i++;
@@ -133,12 +131,23 @@ int main()
     printf("%d\n", i);
 }
 ```
+do while 循环  
+```c
+long x=0;
+int i=0;
+scanf("%ld", &x);
+do{
+    x /= 10;
+    i++;
+   } while (x>0);
+printf("%d\n", i);
+```
 for 循环
 ```c
 // define a function with one input no return value(just print it)
 void cough(int n)
 {
-  for (int i = 0; i < n; i++)
+  for (int i = 0; i < n; i++)  // 初始动作；循环继续的条件；循环每轮要做的动作
   {
      printf("cough\n");  
   }  
