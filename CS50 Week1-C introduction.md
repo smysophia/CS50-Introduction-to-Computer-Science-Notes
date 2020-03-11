@@ -46,7 +46,11 @@ int main(void)
 ```
 
 ## Condition 
-判断奇偶 if
+判断  
+* 符合预期时关系运算的结果为1，否则为整数0  
+* == 和 != 优先级最低  
+* 连续关系运算从左向右，例如：6>5>4 先算6>5结果为1，然后算1>4 结果为0， 最终结果为0
+判断奇偶 if  
 ```c
 int main(void)
 {
@@ -61,12 +65,20 @@ int main(void)
 }
 ```
 
+if 后面也可以不带{}
+```c
+if (x % 2 == 0)
+        printf("even\n");
+else
+        printf("odd\n");
+ ```
+
 ?: 代替简单的if else判断
 ```c
 int main(void){
     int x = get_int("x = ");
-    string y = (x % 2 == 0) ? "even\n" : "odd\n";
-printf("%s\n", y);
+    char* y = (x % 2 == 0) ? "even\n" : "odd\n";
+    printf("%s", y);
 }
 ```
 
@@ -103,7 +115,25 @@ case conditional statement
   ```
  
 ## loop 
-定义函数，循环
+定义函数，循环  
+while循环  
+练习：判断一个数有几位
+```c
+int main()
+{
+    long x=0;
+    int i=0;
+    scanf("%ld", &x);
+    i++;
+    x /= 10;
+    while (x>0){
+        x /= 10;
+        i++;
+    }
+    printf("%d\n", i);
+}
+```
+for 循环
 ```c
 // define a function with one input no return value(just print it)
 void cough(int n)
