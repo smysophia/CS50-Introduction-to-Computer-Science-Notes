@@ -98,12 +98,12 @@ int main(void)
 }
 ```
 
-case conditional statement
+case conditional statement （多路分支）
 ```c
  int x = get_int("");
-  switch(x)
+  switch(x)  // switch(控制表达式){
   {
-        case 1:
+        case 1: //case 常量(只能是整数int类型)：
           printf("one\n");
           break;   // withouth break, the program will runn all case1 case2 and default      
         case 2:
@@ -159,6 +159,13 @@ int main(void)
     cough(n);
 }
 ```
+
+## Bool
+include <stdbool.h>  
+`bool i = true;` 实际上i仍是整数1  
+&& and a&&b 举例：c>="A" && c<="Z"
+|| or  a||b 
+优先级：！高于&& 高于||
 
 
   
