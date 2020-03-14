@@ -28,7 +28,14 @@ while ((ch = fgetc(ptr)) != EOF)  //EOF = End Of File
 `ftell()` at what (byte) position you are
 `feof(ptr)`  if(feof(ptr)) break;
 
-## pointer  
+## pointer 指针  
+`int i; printf("%p\n", &i);` 打印i的地址  
+`int *p = &i` p的值是i的地址（p指向i）*p是一个int  
+`int k = *p` 访问地址p上的变量  
+`*&yptr = *(&yptr) = *(yptr的地址) = yptr地址上的变量 = yptr`  
+`&*yptr = &(*yptr) = &(y指针的变量就是y) = &(y) = yptr`  
+举例 
+分别打印变量和地址
 ```c
 int main(void)
 {
@@ -51,8 +58,19 @@ var[1] = 100
 ptr[1] = 0x7ffd98dcc934
 var[2] = 200
 ptr[2] = 0x7ffd98dcc938
+  
+举例交换两个数  
+```c
+void swap(int *pa, int *pb){
+   int t = *pa;
+   *pa = *pb;
+   *pb = t;
+}
+```
 
-## Dynamic memory allocation  
+
+
+## Dynamic memory allocation 动态内存分配  
 `#include <stdlib.h>`分配所需的内存空间，并返回一个指向它的指针
 `malloc()` returns to a pointer of the memory
 ```c
