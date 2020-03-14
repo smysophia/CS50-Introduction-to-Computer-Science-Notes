@@ -1,7 +1,35 @@
 # Week2 - C Array
 ## Array
 `type name[size]` def  
-`bool truthtable[3] = {false, true, false}` instantiation syntax size3可以省略，or individual element syntax `truthtable[2] =false` 注意没有`truthtable[3]`
+`bool truthtable[3] = {false, true, false}` instantiation syntax size3可以省略，or individual element syntax `truthtable[2] =false` 注意没有`truthtable[3]`  
+初始化数组  
+`int a[]={1,2,3,4,5};`
+或者  
+`int count[10] = {0};`
+等同于  
+```c
+for (int i=0; i<10; i++){
+        count[i] = 0;
+    }
+ ```
+ 初始化制定位置赋值  
+ `int a[10] = {[1]=2,3,[8]=8};` 意思是，（第0位仍旧是0）第1位等于2，（顺延）第2位等于3，第8位等于8.  
+ 数组大小 
+ `int length = sizeof(a)/sizeof(a[0])`  
+ 二维数组  
+ `int a[3][5]`
+ ```c
+ for (i=0; i<3;i++){
+    for (j=0;j<5;j++){
+        printf("a[%d][%d]=%d\n",i,j,a[i][j]);
+        }
+    }
+ ```
+ 初始化  
+ `int a[2][2] = {{1,2},{3,4}};`  
+ `int a[2][2] = {[1][1]=1};` 制定a[1][1]为1，其他自动填充为0
+ 
+ 
 
 ## Search algorithm  
 * Linear search: iterate acroo the array from left to right, search for a specified element. O(n) Ω(1)  
