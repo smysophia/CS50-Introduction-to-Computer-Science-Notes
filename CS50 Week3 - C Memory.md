@@ -67,6 +67,35 @@ void swap(int *pa, int *pb){
    *pb = t;
 }
 ```
+求数列中的最大值和最小值
+```c
+// 先定义一个函数
+void minmax(int a[], int len, int *min, int *max){   // 传入指针min 指针max
+    int i;
+    *min = *max = a[0];
+    for (i=1; i < len; i++){
+        if (a[i] < *min){
+            *min = a[i];  // a[i]赋值到 min指针上的变量（*min） 上去
+        }
+        if (a[i] > *max){
+            *max = a[i];
+        }
+    }
+}
+
+int main()
+{
+    int a[] = {1,2,3,6};
+    int min, max;
+    int len;
+    len = sizeof(a) / sizeof(a[0]);
+
+    minmax(a, len, &min, &max);  // 传入 整数min和max的地址(指针) 到函数中去
+
+    printf("min=%d, max=%d\n", min, max);
+}
+```
+
 
 
 
