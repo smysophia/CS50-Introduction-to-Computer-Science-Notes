@@ -34,7 +34,7 @@ while ((ch = fgetc(ptr)) != EOF)  //EOF = End Of File
 `int k = *p` 访问地址p上的变量  
 `*&yptr = *(&yptr) = *(yptr的地址) = yptr地址上的变量 = yptr`  
 `&*yptr = &(*yptr) = &(y指针的变量就是y) = &(y) = yptr`  
-举例 
+举例   
 分别打印变量和地址
 ```c
 int main(void)
@@ -95,11 +95,37 @@ int main()
     printf("min=%d, max=%d\n", min, max);
 }
 ```
-指针与const
+指针与const  
 `int *const p = &i;` 常量指针：指针是const的，一旦得到了某个变量(i)的地址(&i), 就不能再指向别处。数组为常量指针`int b[] --> int *const b;`
-` const int *p = &i;` 变量是const的，不能通过*p去修改变量
+` const int *p = &i;` 变量是const的，不能通过*p去修改变量  
 
+指针运算  
+不同类型的指针不能互相赋值。void* 是不知道指向什么东西的指针
+*p --> ac[o] 相当于列表中的第一个  
+*(p+1) --> ac[1], *(p+n) <--> ac[n]  
+两个指针相减，是两个地址的差/sizeof（类型），两个地址之间能放几个这样的类型  
+```c
+int a[]={1,2,3,4,5,6};
+int *q=a;
+int *q6=&a[6];
+printf("q6 -q=%d\n", q6-q); --> q6 - q = 6  实际上两个地址的差是24， sizeof(int)=4, 24/4=6
+```
+*p++  
+++的优先级高于p，p++的结果是p加一以前的结果，*p++相当于取出p所指的值，然后把指针p+1，可以用作遍历  
+```c
+int a[]={1,2,3,4,5,-1};
+int *p = a;
 
+/* 用for循环也可以
+    for (p=a; *p != -1; p++){
+        printf("%d\n", *p);
+    }
+*/   
+
+while (*p != -1){
+    printf("%d\n", *p++); 
+}
+```
 
 
 ## Dynamic memory allocation 动态内存分配  
