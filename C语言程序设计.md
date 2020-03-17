@@ -13,7 +13,7 @@ char word[]; //可以修改
 char *a[]; // 每一个a[n]中为一个指向某处字符的指针  
 int main(int agrc, char const *argv[]); //主函数的两个参数  
 单字符串的输入输出  
-int putchar(int c);
+int putchar(int char);
 ```c
 int main(int argc, char* argv[]){
     int ch;
@@ -23,10 +23,10 @@ int main(int argc, char* argv[]){
     printf("get EOF");
 }
 ```
+
 字符串函数  <string.h>
 - strlen(const char *s); // 返回s的字符串长度，不包括\0
-- strcmp(const char *s1, const char *s2); //比较两个字符串
-
+- strcmp(const char *s1, const char *s2); //比较两个字符串, s1==s2 返回0，不相等的时候返回差值。
 
 
 
