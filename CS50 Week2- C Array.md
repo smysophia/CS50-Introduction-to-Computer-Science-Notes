@@ -110,4 +110,34 @@ int main(int argc, string argv[])
     }
 }
 ```
+输出前100个质素  
+```c
+#include <stdio.h>
+int isPrime(int x, int prime[], int count){
+	int i;
+	for(i=0; i < count; i++){
+		if( x % prime[i] == 0){
+			return 0;
+		}
+	}
+	return 1;
+}
 
+int main ()
+{
+	const int number = 100;
+	int prime[number] = {2};
+	int i = 3;
+	int count = 1;
+	while ( count <number ){
+		if (isPrime(i, prime, count)){
+			prime[count] =i;  // 每找到一个质素，就把它放入到prime的列表中去
+			printf("%d ", prime[count]);
+			count++;
+		}
+		i++;
+	}
+
+   return(0);
+}
+```
