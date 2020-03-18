@@ -133,7 +133,90 @@ today.year = 2020;
 `struct date today = {07,31,2014};` 或者 `struct date today = {.month=7, .year=2014};` 或者`p1 = (struct point){5,10};`相当于`p1.x=5; p1.y=10` 也可以`p1=p2`数组不可以这么做  
 取地址`struct date *pDate = &today;`  
 ## 指向结构的指针  
+```c
+// 声明结构变量date，同时定义结构变量myday
+struct date
+{
+	int month;   
+	int day;
+	int year;
+}myday;
+struct date *p = &myday;  //指向myday的指针p
+//相当于(*p).month =12;
+p->month =12;
+```
+将数值通过scanf传入结构
+方法一，传出一个结构，赋值给原结构
+```c
+int main(int argc, char const *argv[])
+{
+	struct date today = {0,0,0};
+	today = getstruct();
+	printf("%d,%d,%d\n",today.month, today.day, today.year);
+	return 0;
+}
 
+struct date getstruct(void){
+	struct date p;
+	scanf("%d", &p.month);
+	scanf("%d", &p.day);
+	scanf("%d", &p.year);
+	printf("在函数中的%d,%d,%d\n",p.month, p.day, p.year);
+	return p;
+}
+```
+方法二，传入指针
+```c
+#include <stdio.h>
+struct date
+{
+	int month;
+	int day;
+	int year;
+};
+
+struct date* getstruct(struct date *p);
+void output (struct date);
+
+
+int main(int argc, char const *argv[])
+{
+	struct date today = {0,0,0};
+	// case 1
+	// getstruct(&today);
+	// output(today);
+	// case 2
+	// output(*getstruct(&today));
+	*getstruct(&today) = (struct date){1, 1, 2019};  // *函数getstruct返回的指针，取值
+	output(today);
+	return 0;
+}
+
+struct date* getstruct(struct date *p){  // 传入一个指针到函数getstruct然后返回一个指针
+	scanf("%d", &p->month);
+	scanf("%d", &p->day);
+	scanf("%d", &p->year);
+	printf("在函数中的%d,%d,%d\n",p->month, p->day, p->year);
+	return p;
+}
+
+void output (struct date today){
+	printf("在output中%d,%d,%d\n",today.month, today.day, today.year);
+}
+
+```
+结构数组  
+`struct date dates[]={{4,5,2019}, {1,1,2020}}` 数组date内每一个元素是一个结构变量struct date
+
+# 自定义数据类型 typedef  
+`typedef int length` 使得length成为int类型的别名
+```c
+typedef struct ADate{
+	int month;
+	int day;
+	int year;
+} Date;  // 给struct Adate取了一个新名字叫Date， 以后Date就可以代表struct ADate
+```
 
 
 
