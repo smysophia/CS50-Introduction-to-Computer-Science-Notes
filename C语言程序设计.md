@@ -7,7 +7,7 @@ void sum(int begin, int end)
 void sum(int begin, int end); 写在开头。  
 
 
-#字符串
+## 字符串
 char *str; //是只读的，不可修改  
 char word[]; //可以修改  
 char *a[]; // 每一个a[n]中为一个指向某处字符的指针  
@@ -24,7 +24,7 @@ int main(int argc, char* argv[]){
 }
 ```
 
-字符串函数  <string.h>
+# 字符串函数  <string.h>
 - strlen(const char *s); // 返回s的字符串长度，不包括\0
 - strcmp(const char *s1, const char *s2); //比较两个字符串, s1==s2 返回0，不相等的时候返回差值。  
 相当于
@@ -110,6 +110,30 @@ int main ()
 *strstr 字符串中找字符串  
 `char* strstr(char* s, char*s2);`  
 `char* strcasestr(char* s, char*s2);`忽略大小写    
+
+
+# 枚举  
+emun 枚举类型的名字{名字0，名字1，...，名字n}， 也可以指定值 {red=1, yello, green=5}
+
+# 结构
+```c
+// 声明结构类型
+struct date
+{
+	int month;   // 分号
+	int day;
+	int year;
+};  //分号
+struct date today;  //定义结构变量today，它的类型是struct date
+today.month =03;
+today.day =18;
+today.year = 2020;
+```
+或者  
+`struct date today = {07,31,2014};` 或者 `struct date today = {.month=7, .year=2014};` 或者`p1 = (struct point){5,10};`相当于`p1.x=5; p1.y=10` 也可以`p1=p2`数组不可以这么做  
+取地址`struct date *pDate = &today;`  
+## 指向结构的指针  
+
 
 
 
