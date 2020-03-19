@@ -337,4 +337,17 @@ __STDC__  判断是不是标准C
 		* d int
 		* i 可以为16进制或者8进制的int
 		* [...] 所允许的字符
-		
+
+# 文件的输入输出  
+`FILE* fopen(const char * restrct path, const char * restrct mode);`打开文件，例如`FILE* fp = fopen("file", "r");`  
+* mode
+	* r 打开只读
+	* r+ 打开读写，从文件头开始
+	* w 打开只写，不存在就新建，存在就清空重新写
+	* w+ 打开读写，不存在就新建，存在就清空重新写
+	* a 打开追加，继续写
+	* .x 只新建，如果文件存在则不能打开  
+
+`fscanf(FILE*);`读文件, 例如`fscanf(fp, "%d", &num);` 从打开的fp中读入一个整数  
+`fprintf(FILE*);`写文件  
+`int fclose(FILE * stream);` 关闭  
