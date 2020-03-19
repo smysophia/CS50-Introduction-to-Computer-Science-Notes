@@ -299,4 +299,42 @@ __STDC__  判断是不是标准C
 函数的宏  
 `#defien cube(x) ((x)*(x)*(x))`
 
+# 多个源代码文件  
+同一个项目中，函数原型放入头文件以.h结尾，需要调用时#include这个头文件。头文件时预处理的。
+全局变量的声明在.h文件中`extern int gAll;`  
+用标准头文件结构来保护，免得重复声明。
+```c
+#ifndef __LIST_HEAD__
+#define __LIST_HEAD__
+...
 
+#endif
+```
+
+# 格式化输入输出  
+* printf  %[flag][width][.prec][hlL]type  返回值：输出的字符数（包含一个\n）  
+	* flag
+		* - 左对齐
+		* + 在前面放加或减号（如果是负数就变成减号）
+		* （space） 正数留空
+		* 0  零填充
+	* width 或prec
+		* number 最小字符数（要占据多少位）
+		* .number 小数点后几位
+		* * 下一个参数是字符数
+		* .* 下一个参数是小数点后的位数
+	* hlL是修饰
+	* type
+		* i或d int
+		* u unsigned int
+		* x 十六进制
+		* n 已经输出了多少个字符，填到指针里去 `printf("%d%n\n", 12345, &num); printf("%d\n", num);`输出5
+* scanf %[flag]type  返回值：读入的项目数
+	* flag
+		* * 跳过
+		* number 最大字符数
+	* type
+		* d int
+		* i 可以为16进制或者8进制的int
+		* [...] 所允许的字符
+		
