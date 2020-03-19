@@ -218,7 +218,85 @@ typedef struct ADate{
 } Date;  // 给struct Adate取了一个新名字叫Date， 以后Date就可以代表struct ADate
 ```
 
+# 全局变量
+```c
+#include <stdio.h>
+int gAll =12;  // 全局变量，在所有函数中都可以使用。
+int f(void){
+	printf("in %s gAll=%d\n", __func__, gAll);  //__func__, 指代当前函数名字
+	gAll += 2;
+	printf("in %s gAll=%d\n", __func__, gAll);
+	return gAll;
+}
 
+int main(int argc, char const *argv[])
+{
+	printf("in %s gAll=%d\n", __func__, gAll);
+	f();
+	printf("in %s gAll=%d\n", __func__, gAll);
+	return 0;
+}
+```
+输出结果：  
+in main gAll=12  
+in f gAll=12  
+in f gAll=14  
+in main gAll=14  
+  
+## 静态本地变量 static 
 
+当函数离开的时候， 静态本地变量回继续存在并保持其值，初始化只会在第一次进入这个函数的时候做，以后进入函数时会保持上次离开时的值。
+```c
+int f(void){
+	static int all = 1;
+	printf("in %s all=%d\n", __func__, all);
+	all += 2;
+	return all;
+}
+
+int main(int argc, char const *argv[])
+{
+	f();
+	f();
+	f();
+	return 0;
+}
+```
+输出结果  
+in f all=1  
+in f all=3  
+in f all=5  
+如果不是静态本地变量（去除static），则输出结果  
+in f all=1  
+in f all=1  
+in f all=1  
+实际上是特殊的全局变量。  
+&gAll= 0x10cff101c  
+&all= 0x10cff1018 地址和全局变量在一起。全局生存期，本地作用域。
+返回指针的函数  
+返回本地变量的地址是危险的，返回全局变量或者静态本地变量的地址是安全的。
+
+# 编译预处理指令
+#开头的是编译预处理指令
+`#define PI 3.1415`定义一个宏.`#define <名字> <值>` 没有分号，因为不是c语言语句。
+多行定义：
+```c
+#define PRT printf("%f", PI); \
+	    printf ("%f\n", PI2)
+```
+  
+指令`$ gcc 1.c --save-temps`保存临时文件  
+`ls -l`查看列表  
+`tail 1.i`查看代码  
+
+预定义的宏：  
+__LINE__  行号   
+__FILE__  文件名  
+__DATE__  编译的日期  
+__TIME__  编译的时间  
+__STDC__  判断是不是标准C  
+  
+函数的宏  
+`#defien cube(x) ((x)*(x)*(x))`
 
 
