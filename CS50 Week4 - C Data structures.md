@@ -36,7 +36,10 @@ typedef struct node
 node;
 ```
 
-* push a node to the beginning of a linked list(see linked.c)
+* push a node to the beginning of a linked list(see linked.c)  
+把新node加在头上  
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_at_start.png" alt="capture"/>
+  
 ```c
 node *pushNode(node *head, int value)
 {
@@ -48,7 +51,10 @@ node *pushNode(node *head, int value)
 }
 ```
 
-* add a node to the end of a linked list
+* add a node to the end of a linked list  
+把新node加在列表的末尾  
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist_insert_last.png" alt="capture"/>
+  
 ```c
 node *addNode(node *head, int value)
 {
