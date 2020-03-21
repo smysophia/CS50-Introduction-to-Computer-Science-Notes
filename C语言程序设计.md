@@ -351,3 +351,97 @@ __STDC__  判断是不是标准C
 `fscanf(FILE*);`读文件, 例如`fscanf(fp, "%d", &num);` 从打开的fp中读入一个整数  
 `fprintf(FILE*);`写文件  
 `int fclose(FILE * stream);` 关闭  
+
+# 可变数组  
+```c
+#include <stdlib.h>
+#include <stdio.h>
+#include<string.h>
+#include "array.h"
+
+// struct Array{
+// 	int *array;
+// 	int size;
+// };
+// typedef struct Array Array;
+
+
+
+// 创建一个Array的结构，返回Array的本身
+Array array_create(int init_size){
+	Array a;
+	a.size = init_size;
+	a.array = (int*)malloc(sizeof(int) * a.size);
+	return a;
+}
+
+// 返回size
+int array_size(const Array *a){
+	return a->size;
+};
+
+// 返回指针，方便直接赋值
+int* array_at(Array *a, int index){
+
+	if (index >= a->size){
+		array_inflate(a, index -  a->size +1);
+	}
+	return &(a->array[index]);
+};
+
+// 扩大空间
+void array_inflate(Array *a, int more_size){
+
+	int *p = (int *) malloc(sizeof(int)*(a->size + more_size));
+	memcpy(p, a->array, (a->size + more_size));
+	// for (int i =0; i < a->size; i++){
+	// 	p[i] = a->array[i];
+	// }
+	free(a->array);
+	a->array = p;
+	a->size += more_size;
+
+};
+
+void array_free(Array *a){
+	free(a->array);
+	a->size = 0;
+	a->array = NULL;
+}
+
+void array_print(Array a){
+	int i;
+	int size;
+	printf("the array is: ");
+	size = a.size;
+	for(i=0; i < size; i++){
+
+		printf("%d ", a.array[i]);
+
+	}
+
+}
+
+int main(int argc, char const *argv[])
+{
+	Array a = array_create(5);
+	printf("size is %d\n", array_size(&a));
+	int number =0;
+	int cnt=0;
+	while(number != -1){
+		// 相当于：
+		// scanf("%d",array_at(&a, cnt++))；
+		scanf("%d", &number);
+			if (number != -1){
+				*array_at(&a, cnt) = number;
+				printf("at %d is %d\n", cnt, a.array[cnt]);
+				cnt++;
+			}
+		
+	}
+	printf("size is %d\n", array_size(&a));
+	array_print(a);
+	array_free(&a);
+	return 0;
+}
+```
