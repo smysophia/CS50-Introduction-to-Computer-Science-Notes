@@ -49,7 +49,7 @@ int main(void)
 判断  
 * 符合预期时关系运算的结果为1，否则为整数0  
 * == 和 != 优先级最低  
-* 连续关系运算从左向右，例如：6>5>4 先算6>5结果为1，然后算1>4 结果为0， 最终结果为0
+* 连续关系运算从左向右，例如：6>5>4 先算6>5结果为1，然后算1>4 结果为0， 最终结果为0  
 判断奇偶 if  
 ```c
 int main(void)
@@ -72,8 +72,8 @@ if (x % 2 == 0)
 else
         printf("odd\n");
  ```
-
-?: 代替简单的if else判断
+条件运算符  
+?: 代替简单的if else判断  
 ```c
 int main(void){
     int x = get_int("x = ");
@@ -81,6 +81,14 @@ int main(void){
     printf("%s", y);
 }
 ```
+条件运算符，自右向左结合  
+```c
+int Max3( int A, int B, int C )
+{ /* 返回3个整数中的最大值 */
+    return A > B ? A > C ? A : C : B > C ? B : C;
+}
+```
+理解为：`A > B ?(A > C ? A : C) : (B > C ? B : C)`  
 
 文字判断if（or） else if
 ```c
