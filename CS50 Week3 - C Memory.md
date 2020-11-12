@@ -52,19 +52,19 @@ int main(void)
 ```
 
 打印的结果
-var[0] = 10
-ptr[0] = 0x7ffd98dcc930
-var[1] = 100
-ptr[1] = 0x7ffd98dcc934
-var[2] = 200
-ptr[2] = 0x7ffd98dcc938
+var[0] = 10  
+ptr[0] = 0x7ffd98dcc930  
+var[1] = 100  
+ptr[1] = 0x7ffd98dcc934  
+var[2] = 200  
+ptr[2] = 0x7ffd98dcc938  
   
 举例交换两个数  
 ```c
 void swap(int *pa, int *pb){
-   int t = *pa;
-   *pa = *pb;
-   *pb = t;
+   int t = *pa;  //将指针pa地址上的值赋给t
+   *pa = *pb;  //将指针pb上的值赋给pa上的值
+   *pb = t;  //将t的值赋给指针pb上的值
 }
 ```
 求数列中的最大值和最小值
