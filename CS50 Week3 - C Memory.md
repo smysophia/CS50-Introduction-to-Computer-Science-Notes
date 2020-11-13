@@ -95,6 +95,25 @@ int main()
     printf("min=%d, max=%d\n", min, max);
 }
 ```
+自定义数组输入（假设不超过100个数）
+```c
+
+int main(){
+    int leng;
+    scanf("%d", &leng);
+    printf("leng=%d\n",leng);
+    int a[100]={0};
+    for (int i = 0; i<leng; i++){
+        scanf("%d", &a[i]);
+    }
+   int min;
+   int max;
+   minmax(a,leng,&min,&max);
+   printf("min=%d, max=%d\n",min,max);
+}
+``` 
+  
+  
 ## 指针与const  
 `int *const p = &i;` 常量指针：指针是const的，一旦得到了某个变量(i)的地址(&i), 就不能再指向别处。数组为常量指针`int b[] --> int *const b;`
 ` const int *p = &i;` 变量是const的，不能通过*p去修改变量  
