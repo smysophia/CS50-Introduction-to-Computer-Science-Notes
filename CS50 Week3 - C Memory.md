@@ -171,13 +171,17 @@ float* heap_array = malloc(x * sizeof(float))
 when you finish working wih dynamically allocated momory `free(ptr)`
 
 ```c
+#include <stdlib.h>
+
 int m;   //statically declare an integer called m.
 int *a;  // statically declare a pointer called a.
 int *b = malloc(sizeof(int)); // dynamically give me one int's worth of space
 a = &m;   // means a points to m
 a = b;   // a and b point to same location. a points to where b currently points to (the dynamically allocated block)
 m = 10;
-*b = 12; // dereferencing b (travel along the arrow to where b points) put 12 in that location.
+*b = 12; // dereferencing b (travel along the arrow to where b points) put 12 in that location. 
+printf("a=%d\n",*a);
+printf("b=%d\n",*b); //输出结果*a=*b=10
 free(b); // take the 4 bytes back
 ```
 
