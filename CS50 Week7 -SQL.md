@@ -26,5 +26,5 @@
 >> SELECT * FROM registrants WHERE dorm = 'A';  
 >> UPDATE registrants SET dorm = 'B' WHERE id = 1;  
 >> DELETE * FROM registrants WHERE id = 1;  
->> SELECT * FROM Artist, Album WHERE Album.ArtistId = Artist.ArtistId;
+>> SELECT * FROM Artist, Album WHERE Album.ArtistId = Artist.ArtistId;  
 >> SELECT * FROM Album where Title like '%Rock%';
